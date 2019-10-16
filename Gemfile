@@ -10,6 +10,7 @@ gem 'popper_js'
 gem 'tether-rails'
 gem 'bootstrap-datepicker-rails'
 gem 'font-awesome-sass'
+gem 'pg'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 # Use sqlite3 as the database for Active Record
