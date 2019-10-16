@@ -6,25 +6,25 @@
     <div class="col">
 
        <% if @item.vendor.name == 'Cisco' %>
-          <td><%= image_tag('cisco', width: '64') %></td>
+          <td><%= image_tag('cisco.jpg', width: '64') %></td>
         <% end %>
         <% if @item.vendor.name == 'Calix' %>
-          <td><%= image_tag('calix', width: '64') %></td>
+          <td><%= image_tag('calix.png', width: '64') %></td>
         <% end %>
         <% if @item.vendor.name == 'Nutanix' %>
-          <td><%= image_tag('nutanix', width: '64') %></td>
+          <td><%= image_tag('nutanix.jpg', width: '64') %></td>
         <% end %>
         <% if @item.vendor.name == 'Commvault' %>
-          <td><%= image_tag('commvault', width: '64') %></td>
+          <td><%= image_tag('commvault.png', width: '64') %></td>
         <% end %>
         <% if @item.vendor.name == 'Barracuda' %>
-          <td><%= image_tag('barracuda', width: '64') %></td>
+          <td><%= image_tag('barracuda.png', width: '64') %></td>
         <% end %>
         <% if @item.vendor.name == 'Ipswitch' %>
-          <td><%= image_tag('ipswitch', width: '64') %></td>
+          <td><%= image_tag('ipswitch.png', width: '64') %></td>
         <% end %>
         <% if @item.vendor.name == 'CDW-G' %>
-          <td><%= image_tag('cdw', width: '64') %></td>
+          <td><%= image_tag('cdw.png', width: '64') %></td>
         <% end %>
         <ul class="list-unstyled">
           <li><%=link_to('Website',@item.vendor.url) %></li>
