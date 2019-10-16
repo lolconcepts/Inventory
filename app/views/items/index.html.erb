@@ -24,21 +24,26 @@
     <% @items.each do |item| %>
       <tr>
         <% if item.vendor.name == 'Cisco' %>
-          <td><%= image_tag('cisco', width: '32') %></td>
+          <td><%= image_tag('cisco', width: '55') %></td>
         <% end %>
         <% if item.vendor.name == 'Calix' %>
-          <td><%= image_tag('calix', width: '32') %></td>
+          <td><%= image_tag('calix', width: '55') %></td>
         <% end %>
         <% if item.vendor.name == 'Nutanix' %>
-          <td><%= image_tag('nutanix', width: '32') %></td>
+          <td><%= image_tag('nutanix', width: '55') %></td>
         <% end %>
         <% if item.vendor.name == 'Commvault' %>
-          <td><%= image_tag('commvault', width: '32') %></td>
+          <td><%= image_tag('commvault', width: '55') %></td>
         <% end %>
         <% if item.vendor.name == 'Barracuda' %>
-          <td><%= image_tag('barracuda', width: '32') %></td>
+          <td><%= image_tag('barracuda', width: '55') %></td>
         <% end %>
-
+        <% if item.vendor.name == 'Ipswitch' %>
+          <td><%= image_tag('ipswitch', width: '55') %></td>
+        <% end %>
+        <% if item.vendor.name == 'CDW-G' %>
+          <td><%= image_tag('cdw', width: '55') %></td>
+        <% end %>
 
 
         <td><%= item.model %></td>

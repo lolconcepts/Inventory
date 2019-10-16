@@ -20,6 +20,12 @@
         <% if @item.vendor.name == 'Barracuda' %>
           <td><%= image_tag('barracuda', width: '64') %></td>
         <% end %>
+        <% if @item.vendor.name == 'Ipswitch' %>
+          <td><%= image_tag('ipswitch', width: '64') %></td>
+        <% end %>
+        <% if @item.vendor.name == 'CDW-G' %>
+          <td><%= image_tag('cdw', width: '64') %></td>
+        <% end %>
         <ul class="list-unstyled">
           <li><%=link_to('Website',@item.vendor.url) %></li>
           <li>Support: <%=@item.vendor.telephone%></li>
