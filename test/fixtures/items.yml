@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  vendor: one
+  model: MyString
+  eol: 2019-10-15
+  eos: 2019-10-15
+  cost_per_year: 1.5
+  serial_number: MyString
+  location: one
+  notes: MyText
+  onboard: 2019-10-15
+  decom: 2019-10-15
+  status: one
+
+two:
+  vendor: two
+  model: MyString
+  eol: 2019-10-15
+  eos: 2019-10-15
+  cost_per_year: 1.5
+  serial_number: MyString
+  location: two
+  notes: MyText
+  onboard: 2019-10-15
+  decom: 2019-10-15
+  status: two

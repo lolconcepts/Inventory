@@ -1,0 +1,113 @@
+<p id="notice"><%= notice %></p>
+<h1 class="bg-info text-white">Showing Asset <%= @item.serial_number %> <button type="button" class="btn btn-light"><%= link_to 'Back', items_path %></button><button type="button" class="btn btn-light"><%= link_to 'Edit', edit_item_path(@item) %></button></h1>
+<div class="container">
+<p>
+  <div class="row">
+    <div class="col">
+
+       <% if @item.vendor.name == 'Cisco' %>
+          <td><%= image_tag('cisco', width: '64') %></td>
+        <% end %>
+        <% if @item.vendor.name == 'Calix' %>
+          <td><%= image_tag('calix', width: '64') %></td>
+        <% end %>
+        <% if @item.vendor.name == 'Nutanix' %>
+          <td><%= image_tag('nutanix', width: '64') %></td>
+        <% end %>
+        <% if @item.vendor.name == 'Commvault' %>
+          <td><%= image_tag('commvault', width: '64') %></td>
+        <% end %>
+        <% if @item.vendor.name == 'Barracuda' %>
+          <td><%= image_tag('barracuda', width: '64') %></td>
+        <% end %>
+        <ul class="list-unstyled">
+          <li><%=link_to('Website',@item.vendor.url) %></li>
+          <li>Support: <%=@item.vendor.telephone%></li>
+        </ul>
+</p>
+</div><!-- End of Row-->
+   <div class="col"> 
+<p>
+  <strong>Model:</strong>
+  <%= @item.model %><p>
+  <strong>Serial number:</strong>
+  <%= @item.serial_number %>
+</p>
+</p>
+</div><!-- End of Row-->
+<div class="col">
+<p>
+  <strong>End of Life:</strong>
+  <% if @item.eol == nil %>
+    EOL Not Set
+    <% else %>
+      <%= @item.eol %>
+      <% end %>
+</p>
+
+<p>
+  <strong>End of Service:</strong>
+  <% if @item.eos == nil %>
+   No Service Contract
+   <% else %>
+    <%= @item.eos %>
+    <% end %>
+</p>
+</div><!-- end of col -->
+<div class="col">
+<p>
+  <strong>Cost per year:</strong>
+  <% if @item.cost_per_year == nil %>
+   No Data Available
+  <% else %>
+    <%= @item.cost_per_year %>
+  <% end %>
+</p>
+</div><!-- end of col -->
+<div class="col">
+
+
+<p>
+  <strong>Location:</strong>
+  <%= @item.location.name %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+   <% if @item.notes == '' %>
+   No Notes
+  <% else %>
+    <%= @item.notes %>
+  <% end %>
+  
+</p>
+
+<p>
+  <strong>Onboarded:</strong>
+  <% if @item.onboard == nil %>
+    Not Set
+  <% else %>
+    <%= @item.onboard %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Decommed:</strong>
+  <% if @item.decom == nil %>
+   Not Set
+  <% else %>
+    <%= @item.decom %>
+  <% end %>
+  
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <% if @item.status.description == "Active" %>
+    <span class="text-success"><%= @item.status.description %></span>
+  <% else %>
+    <span class="text-danger"><%= @item.status.description %></span>
+  <% end %>
+</p>
+</div><!-- end of col -->
+</div><!-- End of container -->

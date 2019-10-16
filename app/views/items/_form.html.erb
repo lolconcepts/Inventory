@@ -1,0 +1,97 @@
+
+<div class="jumbotron">
+  <p class="lead"> Use this facility to record a new asset to track. Be sure to record as much information as needed. If you see something to improve, then <%=mail_to('bryanstewart@tmlp.com', 'Email Bryan')%></p>
+    <hr class="my-4">
+<%= form_with(model: item, local: true) do |form| %>
+  <% if item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+      <ul>
+      <% item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :vendor_id %>
+    <%= collection_select(:item,:vendor_id,Vendor.all,:id,:name,prompt: true) %> 
+  </div>
+
+  <div class="field">
+    <%= form.label :model %>
+    <%= form.text_field :model %>
+  </div>
+
+  <div class="field">
+    <%= form.label 'End of Life' %>
+    <%= form.text_field :eol,
+         data: { provide: "datepicker", 
+        'date-format': 'yyyy-mm-dd', 
+        'date-autoclose': 'true', 
+        'date-today-btn': 'linked',
+        'date-today-highlight': 'true'}  %>
+  </div>
+
+  <div class="field">
+    <%= form.label 'End of Service' %>
+    <%= form.text_field :eos,
+         data: { provide: "datepicker", 
+        'date-format': 'yyyy-mm-dd', 
+        'date-autoclose': 'true', 
+        'date-today-btn': 'linked',
+        'date-today-highlight': 'true'}  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cost_per_year %>
+    <%= form.text_field :cost_per_year %>
+  </div>
+
+  <div class="field">
+    <%= form.label :serial_number %>
+    <%= form.text_field :serial_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :location_id %>
+    <%= collection_select(:item,:location_id,Location.all,:id,:name,prompt: true) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :notes %>
+    <%= form.text_area :notes %>
+  </div>
+
+  <div class="field">
+    <%= form.label 'Onboarded Date' %>
+    <%= form.text_field :onboard,
+         data: { provide: "datepicker", 
+        'date-format': 'yyyy-mm-dd', 
+        'date-autoclose': 'true', 
+        'date-today-btn': 'linked',
+        'date-today-highlight': 'true'} %>
+  </div>
+
+  <div class="field">
+    <%= form.label 'Decom Date' %>
+    <%= form.text_field :decom,
+         data: { provide: "datepicker", 
+        'date-format': 'yyyy-mm-dd', 
+        'date-autoclose': 'true', 
+        'date-today-btn': 'linked',
+        'date-today-highlight': 'true'} %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status_id %>
+    <%= collection_select(:item,:status_id,Status.all,:id,:description,prompt: true) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+</div>

@@ -1,0 +1,68 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Infrastructure Inventory <button type="button" class="btn btn-light"><%= link_to 'New Item', new_item_path %></button></h1>
+<div class="table-responsive">
+<table class="table">
+  <thead>
+    <tr>
+      <th>Vendor</th>
+      <th>Model</th>
+      <th>End of Life</th>
+      <th>End of Support</th>
+      <th>Cost per year</th>
+      <th>Serial number</th>
+      <th>Location</th>
+      <th>Notes</th>
+      <th>Onboard Date</th>
+      <th>Decom Date</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <% if item.vendor.name == 'Cisco' %>
+          <td><%= image_tag('cisco', width: '32') %></td>
+        <% end %>
+        <% if item.vendor.name == 'Calix' %>
+          <td><%= image_tag('calix', width: '32') %></td>
+        <% end %>
+        <% if item.vendor.name == 'Nutanix' %>
+          <td><%= image_tag('nutanix', width: '32') %></td>
+        <% end %>
+        <% if item.vendor.name == 'Commvault' %>
+          <td><%= image_tag('commvault', width: '32') %></td>
+        <% end %>
+        <% if item.vendor.name == 'Barracuda' %>
+          <td><%= image_tag('barracuda', width: '32') %></td>
+        <% end %>
+
+
+
+        <td><%= item.model %></td>
+        <td><%= item.eol %></td>
+        <td><%= item.eos %></td>
+        <td><%= item.cost_per_year %></td>
+        <td><%= item.serial_number %></td>
+        <td><%= item.location.name %></td>
+        <td><%= item.notes %></td>
+        <td><%= item.onboard %></td>
+        <td><%= item.decom %></td>
+        <% if item.status.description == 'Active' %>
+          <td><span class="badge badge-success"><%= item.status.description %></span></td>
+        <% else %>
+          <td><span class="badge badge-warning"><%= item.status.description %></span></td>
+        <% end %>
+        <td><%= link_to '<i class="fas fa-eye"></i>'.html_safe, item %></td>
+        <td><%= link_to '<i class="fas fa-edit"></i>'.html_safe, edit_item_path(item) %></td>
+        <td><%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<br>
+
+
