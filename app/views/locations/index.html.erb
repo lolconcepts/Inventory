@@ -1,8 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Locations</h1>
+<h1>Locations <button type="button" class="btn btn-light"><%= link_to 'New', new_location_path %></button></h1>
 
-<table>
+<div class="table-responsive">
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -22,14 +23,13 @@
         <td><%= location.city %></td>
         <td><%= location.state %></td>
         <td><%= location.zip %></td>
-        <td><%= link_to 'Show', location %></td>
-        <td><%= link_to 'Edit', edit_location_path(location) %></td>
-        <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '<i class="fas fa-eye"></i>'.html_safe, location %></td>
+        <td><%= link_to '<i class="fas fa-edit"></i>'.html_safe, edit_location_path(location) %></td>
+        <td><%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>
 
 <br>
-
-<%= link_to 'New Location', new_location_path %>
